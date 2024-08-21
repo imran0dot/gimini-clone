@@ -9,10 +9,10 @@ const Sidebar:
     = ({ className }) => {
         return (
             <div className={cn("", className)}>
-                <div className="flex flex-col justify-between py-4 min-h-screen">
+                <div className="flex flex-col justify-between py-4 min-h-screen ">
                     {/* top section  */}
                     <div className="px-4 py-2">
-                        <img src={logo} alt="" />
+                        <img src={logo} alt=""/>
 
                         {/* New Chat  */}
                         <div className="mt-3">
