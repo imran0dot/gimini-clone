@@ -1,86 +1,62 @@
-import { LayoutGrid, Library, ListMusic, Mic2, Music2, PlayCircle, Radio, User } from "lucide-react"
+import { HistoryIcon, MessageSquareIcon, PlusIcon, SettingsIcon, ShieldQuestion } from "lucide-react"
 import { cn } from "../../lib/utils"
 import { Button } from "../ui/button"
-import { ScrollArea } from "../ui/scroll-area"
-import { ReactNode } from "react"
-
+import logo from "@/assets/gemini_icon.png";
 const Sidebar:
     React.FC<{
-        className: string;
-        playlists: ReactNode[];
+        className?: string;
     }>
-    = ({ className, playlists }) => {
+    = ({ className }) => {
         return (
-            <div className={cn("pb-12", className)}>
-                <div className="space-y-4 py-4">
+            <div className={cn("", className)}>
+                <div className="flex flex-col justify-between py-4 min-h-screen">
+                    {/* top section  */}
                     <div className="px-4 py-2">
-                        <h2 className="mb-2 px-2 text-lg font-semibold tracking-tight">
-                            Discover
-                        </h2>
-                        <div className="space-y-1">
+                        <img src={logo} alt="" />
+
+                        {/* New Chat  */}
+                        <div className="mt-3">
                             <Button
-                                variant="secondary"
-                                size="sm"
-                                className="w-full justify-start"
+                                variant="default"
+                                size="lg"
+                                className="w-full justify-start bg-slate-300 bg-opacity-100 text-black hover:text-white"
                             >
-                                <PlayCircle className="mr-2 h-4 w-4" />
-                                Listen Now
+                                <PlusIcon className="mr-2 h-4 w-4" />
+                                New Chat
                             </Button>
+                        </div>
+
+                        {/* Recent Chats  */}
+                        <div className="space-y-1 mt-10">
+                            <h2 className="mb-2 px-2 text-lg font-semibold tracking-tight">
+                                Recent Chat's
+                            </h2>
                             <Button variant="ghost" size="sm" className="w-full justify-start">
-                                <LayoutGrid className="mr-2 h-4 w-4" />
+                                <MessageSquareIcon className="mr-2 h-4 w-4" />
                                 Browse
                             </Button>
-                            <Button variant="ghost" size="sm" className="w-full justify-start">
-                                <Radio className="mr-2 h-4 w-4" />
-                                Radio
-                            </Button>
                         </div>
                     </div>
+
+                    {/* bottom section  */}
+                    
                     <div className="px-4 py-2">
-                        <h2 className="mb-2 px-2 text-lg font-semibold tracking-tight">
-                            Library
-                        </h2>
-                        <div className="space-y-1">
+                        {/* Recent Chats  */}
+                        <div className="space-y-1 ">
                             <Button variant="ghost" size="sm" className="w-full justify-start">
-                                <ListMusic className="mr-2 h-4 w-4" />
-                                Playlists
+                                <ShieldQuestion className="mr-2 h-4 w-4" />
+                                Help
                             </Button>
                             <Button variant="ghost" size="sm" className="w-full justify-start">
-                                <Music2 className="mr-2 h-4 w-4" />
-                                Songs
+                                <HistoryIcon className="mr-2 h-4 w-4" />
+                                Activity
                             </Button>
+                            
                             <Button variant="ghost" size="sm" className="w-full justify-start">
-                                <User className="mr-2 h-4 w-4" />
-                                Made for You
-                            </Button>
-                            <Button variant="ghost" size="sm" className="w-full justify-start">
-                                <Mic2 className="mr-2 h-4 w-4" />
-                                Artists
-                            </Button>
-                            <Button variant="ghost" size="sm" className="w-full justify-start">
-                                <Library className="mr-2 h-4 w-4" />
-                                Albums
+                                <SettingsIcon className="mr-2 h-4 w-4" />
+                                Setting
                             </Button>
                         </div>
-                    </div>
-                    <div className="py-2">
-                        <h2 className="relative px-6 text-lg font-semibold tracking-tight">
-                            Playlists
-                        </h2>
-                        <ScrollArea className="h-[300px] px-2">
-                            <div className="space-y-1 p-2">
-                                {playlists?.map((playlist) => (
-                                    <Button
-                                        variant="ghost"
-                                        size="sm"
-                                        className="w-full justify-start font-normal"
-                                    >
-                                        <ListMusic className="mr-2 h-4 w-4" />
-                                        {playlist}
-                                    </Button>
-                                ))}
-                            </div>
-                        </ScrollArea>
                     </div>
                 </div>
             </div>
